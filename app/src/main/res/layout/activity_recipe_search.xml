@@ -6,21 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".activities.RecipeSearch">
 
-    <TextView
-        android:id="@+id/titleTx"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="2dp"
-        android:background="@color/backGround"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/mainTextColor"
-        android:textSize="30sp"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+    <include
+        android:id="@+id/include"
+        layout="@layout/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -28,15 +19,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="64dp"
         android:ems="10"
         android:hint="@string/recipe_search_hint"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTx" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <ImageButton
         android:id="@+id/searchBtn"
@@ -50,33 +41,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/searchEt"
-        app:layout_constraintTop_toBottomOf="@+id/titleTx"
+        app:layout_constraintTop_toBottomOf="@+id/include"
         app:srcCompat="@android:drawable/ic_search_category_default" />
 
-    <ScrollView
-        android:id="@+id/resultSv"
-        android:layout_width="0dp"
+    <ListView
+        android:id="@+id/resultLv"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@color/backGround"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchEt">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ListView
-                android:id="@+id/resultLv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/backGround" />
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
