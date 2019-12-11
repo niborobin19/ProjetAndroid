@@ -1,4 +1,4 @@
-package com.example.cuisinhelha;
+package com.example.cuisinhelha.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,8 +7,9 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cuisinhelha.R;
+import com.example.cuisinhelha.activities.MainActivity;
 import com.example.cuisinhelha.helpers.UserPreferences;
-
 
 public class HomeActivity extends AppCompatActivity {
 

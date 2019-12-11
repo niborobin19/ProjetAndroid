@@ -1,4 +1,4 @@
-package com.example.cuisinhelha;
+package com.example.cuisinhelha.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.helpers.UserPreferences;
 import com.example.cuisinhelha.models.AuthenticateUser;
 import com.example.cuisinhelha.models.User;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         String token = preferences.getString("token", null);
         // If there is a token, sends the user to the HomeActivity
         if (token != null) {
-            goToHomeActivity();
+//            goToHomeActivity();
         }
 
         etPseudo = findViewById(R.id.et_pseudo);
@@ -107,6 +108,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToHomeActivity() {
         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    public void loadRecipeSearchActivity(View view) {
+        Intent intent = new Intent(this, RecipeSearchActivity.class);
+        startActivity(intent);
+    }
+
+    public void loadRecipeCreateActivity(View view) {
+        Intent intent = new Intent(this, RecipeCreateActivity.class);
         startActivity(intent);
     }
 }

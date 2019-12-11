@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backGround"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <include
         android:id="@+id/include3"
@@ -21,10 +21,10 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginTop="150dp"
-        android:visibility="invisible"
         android:textColor="@color/error"
         android:textSize="@dimen/txt_sm"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include3" />
@@ -73,13 +73,30 @@
         android:id="@+id/anonymous_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@color/backGround"
-        android:text="@string/btn_continue"
         android:onClick="onAnonymousBtnClick"
+        android:text="@string/btn_continue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <Button
+        android:id="@+id/searchRecipeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/backGround"
+        android:onClick="loadRecipeSearchActivity"
+        android:text="Recherche de recettes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/anonymous_btn" />
+    app:layout_constraintTop_toBottomOf="@+id/titleTx" />
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
