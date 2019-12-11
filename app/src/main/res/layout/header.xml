@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="80dp"
@@ -13,9 +12,8 @@
         android:id="@+id/header_logo"
         android:layout_width="273dp"
         android:layout_height="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="14dp"
         android:contentDescription="@string/logo_description"
-        android:onClick="test"
         android:src="@drawable/cuisinehelha_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -25,8 +23,8 @@
 
     <ImageView
         android:id="@+id/profile_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="@dimen/header_icon_top_margin"
         android:layout_marginEnd="@dimen/header_icon_x_margin"
@@ -39,8 +37,8 @@
 
     <ImageView
         android:id="@+id/search_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="@dimen/header_icon_top_margin"
         android:layout_marginEnd="@dimen/header_icon_x_margin"

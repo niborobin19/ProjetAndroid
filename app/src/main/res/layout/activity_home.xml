@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logOut"
+        android:text="Log out"
+        app:layout_constraintEnd_toEndOf="@+id/titleTx"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/titleTx"
         android:layout_width="0dp"

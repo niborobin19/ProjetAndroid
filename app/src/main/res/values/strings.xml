@@ -9,8 +9,17 @@
     <string name="welcome">Welcome !</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be at least 5 characters</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed">Log in failed</string>
 
+    /** EDIT TEXTS **/
+    <string name="et_pseudo">Pseudo</string>
+    <string name="et_password">Password</string>
+
+    /** BUTTONS **/
+    <string name="btn_login">Log in</string>
+    <string name="btn_continue">Continue</string>
+
+    /** IMAGE VIEWS DESCRIPTIONS **/
     <string name="profile_icon_description">Header\'s profile icon.</string>
     <string name="search_icon_description">Header\'s search icon.</string>
     <string name="logo_description">Header\'s logo.</string>

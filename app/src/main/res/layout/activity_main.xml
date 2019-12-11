@@ -8,71 +8,78 @@
     tools:context=".MainActivity">
 
     <include
+        android:id="@+id/include3"
         layout="@layout/header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
-        android:id="@+id/titleTx"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="180dp"
-        android:layout_marginRight="2dp"
-        android:text="@string/app_name"
-        android:textAlignment="center"
-        android:textColor="@color/mainTextColor"
-        android:textSize="30sp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/tv_error"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Se connecter"
+        android:layout_height="30dp"
+        android:layout_marginTop="150dp"
+        android:visibility="invisible"
+        android:textColor="@color/error"
+        android:textSize="@dimen/txt_sm"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEt" />
+        app:layout_constraintTop_toBottomOf="@+id/include3" />
 
     <EditText
-        android:id="@+id/loginEt"
+        android:id="@+id/et_pseudo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="@string/et_pseudo"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="aaa"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTx" />
+        app:layout_constraintTop_toBottomOf="@id/tv_error"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/passwordEt"
+        android:id="@+id/et_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="@string/et_password"
         android:inputType="textPassword"
+        android:text="aaa"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEt" />
+        app:layout_constraintTop_toBottomOf="@+id/et_pseudo" />
 
     <Button
-        android:id="@+id/dontLoginBtn"
+        android:id="@+id/btn_login"
+        android:layout_width="139dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:onClick="authenticate"
+        android:text="@string/btn_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <Button
+        android:id="@+id/anonymous_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@color/backGround"
-        android:text="Continuer anonymement"
+        android:text="@string/btn_continue"
+        android:onClick="onAnonymousBtnClick"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
