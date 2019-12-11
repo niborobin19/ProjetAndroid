@@ -23,6 +23,10 @@ public class Recipe {
         this(-1, idUser, nameRecipe, postDate, summary, persons, spiceRate, recipeType, "");
     }
 
+    public Recipe() {
+
+    }
+
     public Recipe(int idRecipe, int idUser, String nameRecipe, String postDate, String summary, int persons, int spiceRate, String recipeType, String pseudo) {
         this.idRecipe = idRecipe;
         this.idUser = idUser;
