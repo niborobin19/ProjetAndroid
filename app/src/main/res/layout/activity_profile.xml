@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ProfileActivity">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        style="@style/TxtLgBold"
+        android:id="@+id/tv_user_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="33dp"
+        android:text="@string/user_details"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2" />
+
+    <TextView
+        style="@style/TxtSmBold"
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/user_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_details" />
+
+    <TextView
+        android:id="@+id/tv_user_mail"
+        style="@style/TxtSmBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="@string/user_mail"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+    <TextView
+        android:id="@+id/tv_user_password"
+        style="@style/TxtSmBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="@string/user_password"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_mail" />
+
+    <TextView
+        android:id="@+id/tv_user_name_value"
+        android:layout_width="262dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:textSize="@dimen/txt_sm"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
+        app:layout_constraintStart_toEndOf="@+id/tv_user_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_user_name"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/et_user_mail"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        android:textSize="@dimen/txt_sm"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_name_value"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name_value" />
+
+    <EditText
+        android:id="@+id/et_user_mail_confirm"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:inputType="textEmailAddress"
+        android:textSize="@dimen/txt_sm"
+        app:layout_constraintBottom_toBottomOf="@+id/et_user_mail"
+        app:layout_constraintStart_toEndOf="@+id/et_user_mail"
+        app:layout_constraintTop_toTopOf="@+id/et_user_mail" />
+
+    <EditText
+        android:id="@+id/et_user_password"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:textSize="@dimen/txt_sm"
+        android:text="aaaaaaaa"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_name_value"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_mail" />
+
+    <EditText
+        android:id="@+id/et_user_password_confirm"
+        android:layout_width="122dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:inputType="textPassword"
+        android:textSize="@dimen/txt_sm"
+        app:layout_constraintBottom_toBottomOf="@+id/et_user_password"
+        app:layout_constraintStart_toEndOf="@+id/et_user_password" />
+
+
+    <TextView
+        android:id="@+id/tv_user_recipes"
+        style="@style/TxtLgBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="176dp"
+        android:text="@string/user_recipes"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_details"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_details" />
+
+    <TextView
+        style="@style/TxtLgBold"
+        android:id="@+id/tv_user_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="@string/user_comments"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_details"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_recipes" />
+
+    <ImageView
+        android:id="@+id/iv_log_out"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:onClick="logOut"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/log_out_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.cuisinhelha.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.ListView;
 
 import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.adapters.RecipeSearchResultAdapter;
+import com.example.cuisinhelha.helpers.UserPreferences;
+import com.example.cuisinhelha.interfaces.IHeaderNavigation;
 import com.example.cuisinhelha.models.Recipe;
 import com.example.cuisinhelha.services.RecipeRepositoryService;
 
@@ -22,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RecipeSearchActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class RecipeSearchActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, IHeaderNavigation {
 
     public static final String EXTRA_SEARCH_ACTIVITY = "EXTRA_SEARCH_ACTIVITY";
 
@@ -61,19 +64,34 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
 
     public void searchRecipes(View view) {
         RecipeRepositoryService.queryText(etSearch.getText().toString())
-                .enqueue(new Callback<List<Recipe>>() {
-                    @Override
-                    public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
-                        recipes.clear();
-                        recipes.addAll(response.body());
-                        Log.wtf("recipes", recipes.toString());
-                        adapter.notifyDataSetChanged();
-                    }
+            .enqueue(new Callback<List<Recipe>>() {
+                @Override
+                public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                    recipes.clear();
+                    recipes.addAll(response.body());
+                    Log.wtf("recipes", recipes.toString());
+                    adapter.notifyDataSetChanged();
+                }
 
-                    @Override
-                    public void onFailure(Call<List<Recipe>> call, Throwable t) {
-                        Log.wtf("SuperError", "Une erreur lors de l'accès à la table 'recipe' est survenue");
-                    }
-                });
+                @Override
+                public void onFailure(Call<List<Recipe>> call, Throwable t) {
+                    Log.wtf("SuperError", "Une erreur lors de l'accès à la table 'recipe' est survenue");
+                }
+            });
     }
+
+    @Override
+    public void loadProfileActivity(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void loadHomeActivity(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void loadRecipeSearchActivity(View view) {}
 }

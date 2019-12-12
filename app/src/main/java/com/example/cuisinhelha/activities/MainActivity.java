@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.helpers.UserPreferences;
+import com.example.cuisinhelha.interfaces.IHeaderNavigation;
 import com.example.cuisinhelha.models.AuthenticateUser;
 import com.example.cuisinhelha.models.User;
 import com.example.cuisinhelha.services.UserRepositoryService;
@@ -21,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IHeaderNavigation {
     private EditText etPseudo;
     private EditText etPassword;
     private TextView tvError;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         String token = preferences.getString("token", null);
         // If there is a token, sends the user to the HomeActivity
         if (token != null) {
-//            goToHomeActivity();
+            loadHomeActivity(null);
         }
 
         etPseudo = findViewById(R.id.et_pseudo);
@@ -58,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
                     SharedPreferences preferences = getSharedPreferences("user", MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
-                    UserPreferences.putUserPreferences(user, editor);
+                    UserPreferences.putPreferences(user, editor);
                     editor.apply();
 
-                    goToHomeActivity();
+                    loadHomeActivity(null);
 
                     // On wrong credentials
                 } else if (code == 400) {
@@ -103,17 +104,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onAnonymousBtnClick(View view) {
-        goToHomeActivity();
+        loadHomeActivity(null);
     }
 
-    public void goToHomeActivity() {
+
+
+    @Override
+    public void loadHomeActivity(View view) {
         Intent intent = new Intent(MainActivity.this, HomeActivity.class);
         startActivity(intent);
     }
 
+    @Override
     public void loadRecipeSearchActivity(View view) {
         Intent intent = new Intent(this, RecipeSearchActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void loadProfileActivity(View view) {
+//        Intent intent = new Intent(this, ProfileActivity.class);
+//        startActivity(intent);
     }
 
     public void loadRecipeCreateActivity(View view) {
