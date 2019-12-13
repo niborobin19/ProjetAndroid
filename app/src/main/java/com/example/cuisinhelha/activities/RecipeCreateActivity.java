@@ -2,6 +2,8 @@ package com.example.cuisinhelha.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -29,8 +31,9 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.example.cuisinhelha.interfaces.IHeaderNavigation;
 
-public class RecipeCreateActivity extends AppCompatActivity {
+public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNavigation {
 
     private EditText etName;
     private EditText etSummary;
@@ -314,4 +317,21 @@ public class RecipeCreateActivity extends AppCompatActivity {
         etStep.setText("");
     }
 
+    @Override
+    public void loadProfileActivity(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);           
+    }
+
+    @Override
+    public void loadHomeActivity(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void loadRecipeSearchActivity(View view) {
+        Intent intent = new Intent(this, RecipeSearchActivity.class);
+        startActivity(intent);
+    }
 }

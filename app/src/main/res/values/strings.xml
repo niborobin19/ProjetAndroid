@@ -33,4 +33,12 @@
     <string name="quantity_string">Quantity</string>
     <string name="unit_string">Unit</string>
     <string name="step_string">Step</string>
+
+    /** PROFILE ACTIVITY **/
+    <string name="user_details">Your details:</string>
+    <string name="user_recipes">Your recipes:</string>
+    <string name="user_comments">Your comments:</string>
+    <string name="user_name">Name:</string>
+    <string name="user_mail">Mail:</string>
+    <string name="user_password">Password:</string>
 </resources>

@@ -7,5 +7,12 @@
 
     /** TEXT **/
     <dimen name="txt_sm">16sp</dimen>
-    <dimen name="txt_md">22sp</dimen>
+    <dimen name="txt_md">20sp</dimen>
+    <dimen name="txt_lg">26sp</dimen>
+    <dimen name="txt_xl">30sp</dimen>
+
+    /** Edit Text **/
+    <dimen name="et_sm">30dp</dimen>
+    <dimen name="et_md">50dp</dimen>
+    <dimen name="et_lg">70dp</dimen>
 </resources>
