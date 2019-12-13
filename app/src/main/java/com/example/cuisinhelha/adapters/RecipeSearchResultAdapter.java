@@ -29,11 +29,6 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-        Log.wtf("randomStart", ""+position);
-        Log.wtf("item", getItem(position).toString());
-        Log.wtf("randomEnd", ""+position);
-
         View v = convertView;
 
         if(v == null){

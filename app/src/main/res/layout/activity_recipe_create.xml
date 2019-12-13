@@ -7,10 +7,356 @@
     tools:context=".activities.RecipeCreateActivity">
 
     <include
+        android:id="@+id/include4"
         layout="@layout/header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/RecipeCreateSv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/recipe_name_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/name_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/recipe_name_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="Recipe name..."
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_name_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_summary_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/summary_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_name_et" />
+
+                <EditText
+                    android:id="@+id/recipe_summary_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="Recipe summary..."
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_summary_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_type_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="224dp"
+                    android:text="@string/recipe_type_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_summary_et" />
+
+                <TextView
+                    android:id="@+id/recipe_time_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="224dp"
+                    android:text="@string/preparation_time_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_type_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_people_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="224dp"
+                    android:text="@string/people_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_time_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_spice_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="224dp"
+                    android:text="@string/sprice_rate_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_people_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_ingredient_name_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/ingredient_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_spice_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_ingredient_quantity_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="224dp"
+                    android:text="@string/quantity_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_name_spin" />
+
+                <TextView
+                    android:id="@+id/recipe_ingredient_unit_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="224dp"
+                    android:text="@string/unit_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_quantity_create_tv" />
+
+                <TextView
+                    android:id="@+id/recipe_step_create_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/step_string"
+                    android:textAlignment="center"
+                    app:autoSizeMaxTextSize="32dp"
+                    app:autoSizeMinTextSize="16dp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_lv" />
+
+                <Spinner
+                    android:id="@+id/recipe_type_spin"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_type_create_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_summary_et" />
+
+                <EditText
+                    android:id="@+id/recipe_time_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="Time..."
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_time_create_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_type_spin" />
+
+                <EditText
+                    android:id="@+id/recipe_people_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="People..."
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_people_create_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_time_et" />
+
+                <EditText
+                    android:id="@+id/recipe_spice_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="Spice..."
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_spice_create_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_people_et" />
+
+                <Spinner
+                    android:id="@+id/recipe_ingredient_name_spin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_name_create_tv" />
+
+                <EditText
+                    android:id="@+id/recipe_ingredient_quantity_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="Quantity..."
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_ingredient_quantity_create_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_name_spin" />
+
+                <Spinner
+                    android:id="@+id/recipe_ingredient_unit_spin"
+                    android:layout_width="0dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_ingredient_unit_create_tv"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_quantity_et" />
+
+                <Button
+                    android:id="@+id/recipe_ingredient_add_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Add ingredient"
+                    android:onClick="addIngredient"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_unit_create_tv" />
+
+                <ListView
+                    android:id="@+id/recipe_ingredient_lv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_ingredient_add_btn"/>
+
+                <ListView
+                    android:id="@+id/recipe_steps_lv"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recite_step_add_btn">
+
+                </ListView>
+
+                <EditText
+                    android:id="@+id/recipe_step_create_et"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:hint="Step..."
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_step_create_tv" />
+
+                <Button
+                    android:id="@+id/recite_step_add_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Add step"
+                    android:onClick="addStep"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_step_create_et" />
+
+                <Button
+                    android:id="@+id/recipe_create_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:text="Create Recipe"
+                    android:onClick="postRecipe"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_steps_lv" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@ package com.example.cuisinhelha.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,10 +39,10 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
         recipes = new ArrayList<>();
         recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3 ,150, 3, "Dessert", "ElsaD"));
 
-        etSearch = findViewById(R.id.searchEt);
-        lvResult = findViewById(R.id.resultLv);
+        etSearch = findViewById(R.id.search_et);
+        lvResult = findViewById(R.id.result_lv);
 
-        adapter = new RecipeSearchResultAdapter(this, R.id.resultLv, recipes);
+        adapter = new RecipeSearchResultAdapter(this, R.id.result_lv, recipes);
         lvResult.setAdapter(adapter);
         lvResult.setOnItemClickListener(this);
 
@@ -64,10 +63,8 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
                 .enqueue(new Callback<List<Recipe>>() {
                     @Override
                     public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
-                        recipes.clear();
-                        recipes.addAll(response.body());
-                        Log.wtf("recipes", recipes.toString());
-                        adapter.notifyDataSetChanged();
+                        adapter.clear();
+                        adapter.addAll(response.body());
                     }
 
                     @Override
