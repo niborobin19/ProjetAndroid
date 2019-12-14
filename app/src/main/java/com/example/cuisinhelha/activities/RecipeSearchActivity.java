@@ -41,7 +41,7 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_recipe_search);
 
         recipes = new ArrayList<>();
-        recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3 ,150, 3, "Dessert", "ElsaD"));
+        recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3, 150, 3, "Dessert", "ElsaD"));
 
         etSearch = findViewById(R.id.search_et);
         lvResult = findViewById(R.id.result_lv);
@@ -49,17 +49,14 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
         adapter = new RecipeSearchResultAdapter(this, R.id.result_lv, recipes);
         lvResult.setAdapter(adapter);
         lvResult.setOnItemClickListener(this);
-
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Log.wtf("detail", "test");
         Intent intent = new Intent(this, RecipeDetail.class);
         intent.putExtra(EXTRA_SEARCH_ACTIVITY, recipes.get(position).getIdRecipe());
         startActivity(intent);
-
-
     }
 
     public void searchRecipes(View view) {
@@ -78,6 +75,13 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
                         Log.wtf("SuperError", "Une erreur lors de l'accès à la table 'recipe' est survenue");
                     }
                 });
+    }
+
+    public void loadDetailsActivity(int id)
+    {
+        Intent intent = new Intent(this, RecipeDetail.class);
+        intent.putExtra(EXTRA_SEARCH_ACTIVITY, id);
+        startActivity(intent);
     }
 
     @Override

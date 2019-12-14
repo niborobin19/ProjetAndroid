@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.cuisinhelha.R;
+import com.example.cuisinhelha.activities.RecipeSearchActivity;
 import com.example.cuisinhelha.models.Recipe;
 import com.example.cuisinhelha.services.RecipeRepositoryService;
 import com.example.cuisinhelha.services.ReviewRepositoryService;
@@ -25,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
+
     public RecipeSearchResultAdapter(@NonNull Context context, int resource, @NonNull List<Recipe> objects) {
         super(context, resource, objects);
     }
@@ -47,6 +49,7 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
         TextView tvSummary = v.findViewById(R.id.summaryTv);
         TextView tvInfo = v.findViewById(R.id.infoTv);
         ImageButton btnDelete = v.findViewById(R.id.delete_btn);
+        ImageButton btnDetails = v.findViewById(R.id.details_btn);
 
         ///TODO masquer si l'utilisateur n'est ni admin ni propriétaire
         btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +67,13 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
                         Log.wtf("delete recipe", "la recette n'a pas pu être supprimée");
                     }
                 });
+            }
+        });
+
+        btnDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((RecipeSearchActivity)getContext()).loadDetailsActivity(getItem(position).getIdRecipe());
             }
         });
 

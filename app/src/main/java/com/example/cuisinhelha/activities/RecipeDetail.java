@@ -2,6 +2,7 @@ package com.example.cuisinhelha.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.adapters.RecipeIngredientAdapter;
 import com.example.cuisinhelha.adapters.RecipeReviewAdapter;
 import com.example.cuisinhelha.adapters.RecipeStepAdapter;
+import com.example.cuisinhelha.interfaces.IHeaderNavigation;
 import com.example.cuisinhelha.models.Ingredient;
 import com.example.cuisinhelha.models.Recipe;
 import com.example.cuisinhelha.models.Review;
@@ -31,7 +33,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RecipeDetail extends AppCompatActivity {
+public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation {
 
     private TextView tv_recipeTitle;
     private TextView tv_recipeType;
@@ -184,4 +186,21 @@ public class RecipeDetail extends AppCompatActivity {
         lv.setLayoutParams(params);
         lv.requestLayout();
     }
+
+    @Override
+    public void loadProfileActivity(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void loadHomeActivity(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void loadRecipeSearchActivity(View view) {
+        Intent intent = new Intent(this, RecipeSearchActivity.class);
+        startActivity(intent);}
 }

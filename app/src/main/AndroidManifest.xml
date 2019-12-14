@@ -20,6 +20,8 @@
             android:theme="@style/Global" />
         <activity android:name=".activities.HomeActivity"
             android:theme="@style/Global" />
+        <activity android:name=".activities.RecipeDetail"
+            android:theme="@style/Global" />
         <activity android:name=".activities.MainActivity"
             android:noHistory="true"
             android:theme="@style/Global">
