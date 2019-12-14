@@ -36,7 +36,7 @@ public class RecipeStepAdapter extends ArrayAdapter<Step> {
 
         TextView tvStep = v.findViewById(R.id.tvStep);
 
-        tvStep.setText(step.getStepNb()+" "+step.getStep());
+        tvStep.setText(step.getStepNumber()+" "+step.getStep());
 
         return v;
     }

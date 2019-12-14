@@ -40,7 +40,7 @@ public class StepRecipeCreateAdapter extends ArrayAdapter<Step>{
         ImageButton btnDelete = v.findViewById(R.id.delete_step_btn);
         Log.wtf("ingredient", getItem(position).toString());
 
-        tvStep.setText(getItem(position).getStepNb() + " : " + getItem(position).getStep());
+        tvStep.setText(getItem(position).getStepNumber() + " : " + getItem(position).getStep());
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class StepRecipeCreateAdapter extends ArrayAdapter<Step>{
 
     public void updateStepNb() {
         for (int i = 0; i < items.size(); i++) {
-            items.get(i).setStepNb(i+1);
+            items.get(i).setStepNumber(i+1);
         }
         notifyDataSetChanged();
     }

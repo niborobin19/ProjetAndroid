@@ -3,21 +3,21 @@ package com.example.cuisinhelha.models;
 public class Step {
     private int idStep;
     private int idRecipe;
-    private int stepNb;
+    private int stepNumber;
     private String step;
 
     public Step() {
         this(-1, -1, -1, "");
     }
 
-    public Step(int idRecipe, int stepNb, String step) {
-        this(-1, idRecipe, stepNb, step);
+    public Step(int idRecipe, int stepNumber, String step) {
+        this(-1, idRecipe, stepNumber, step);
     }
 
-    public Step(int idStep, int idRecipe, int stepNb, String step) {
+    public Step(int idStep, int idRecipe, int stepNumber, String step) {
         this.idStep = idStep;
         this.idRecipe = idRecipe;
-        this.stepNb = stepNb;
+        this.stepNumber = stepNumber;
         this.step = step;
     }
 
@@ -37,12 +37,12 @@ public class Step {
         this.idRecipe = idRecipe;
     }
 
-    public int getStepNb() {
-        return stepNb;
+    public int getStepNumber() {
+        return stepNumber;
     }
 
-    public void setStepNb(int stepNb) {
-        this.stepNb = stepNb;
+    public void setStepNumber(int stepNumber) {
+        this.stepNumber = stepNumber;
     }
 
     public String getStep() {
@@ -58,7 +58,7 @@ public class Step {
         return "Step{" +
                 "idStep=" + idStep +
                 ", idRecipe=" + idRecipe +
-                ", stepNb=" + stepNb +
+                ", stepNumber=" + stepNumber +
                 ", step='" + step + '\'' +
                 '}';
     }
