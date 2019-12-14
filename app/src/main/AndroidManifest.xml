@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cuisinhelha">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecipeDetail"></activity>
-        <activity
-            android:name=".MainActivity"
+
+        <activity android:name=".activities.RecipeDetail" android:theme="@style/NoTitleBar"></activity>
+
+
+        <activity android:name=".activities.RecipeCreate" android:theme="@style/NoTitleBar"/>
+        <activity android:name=".activities.RecipeSearch" android:theme="@style/NoTitleBar"/>
+        <activity android:name=".activities.HomeActivity" android:theme="@style/NoTitleBar"/>
+        <activity android:name=".activities.MainActivity" android:theme="@style/NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+        <!-- <activity android:name=".MainActivity"
+>>>>>>> 0463377e64ab90598d24c434f15c5f2ee3a6ad08
             android:theme="@style/NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".HomeActivity" />
+=======
+        <activity android:name=".HomeActivity"></activity> -->
+
     </application>
 
 </manifest>

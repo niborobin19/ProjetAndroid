@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/ingredientName"
+            android:layout_width="181dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="ingredientName"
+            android:textColor="@color/mainTextColor"
+            app:autoSizeMaxTextSize="64dp"
+            app:autoSizeMinTextSize="16dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.023"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ingredientUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ingredientUnit"
+            android:textColor="@color/mainTextColor"
+            app:layout_constraintStart_toEndOf="@+id/ingredientQuantity"
+            app:layout_constraintTop_toBottomOf="@+id/recipeNameTv" />
+
+        <TextView
+            android:id="@+id/ingredientQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="ingredientQuantity"
+            android:textColor="@color/mainTextColor"
+            app:autoSizeMaxTextSize="32dp"
+            app:autoSizeMinTextSize="8dp"
+            app:layout_constraintStart_toEndOf="@+id/ingredientName"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

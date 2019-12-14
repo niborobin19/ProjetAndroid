@@ -7,33 +7,37 @@ public class Recipe {
     private String postDate;
     private String summary;
     private int persons;
+    private int prepTime;
     private int spiceRate;
     private String recipeType;
     private String pseudo;
 
-    public Recipe(int idRecipe, int idUser, String nameRecipe, String postDate, String summary, int persons, int spiceRate, String recipeType) {
-        this(idRecipe, idUser, nameRecipe, postDate, summary, persons, spiceRate, recipeType, "");
+    public Recipe(int idRecipe, int idUser, String nameRecipe, String postDate, String summary, int persons, int prepTime, int spiceRate, String recipeType) {
+        this(idRecipe, idUser, nameRecipe, postDate, summary, persons, prepTime, spiceRate, recipeType, "");
     }
 
-    public Recipe(int idUser, String nameRecipe, String postDate, String summary, int persons, int spiceRate, String recipeType, String pseudo) {
-        this(-1, idUser, nameRecipe, postDate, summary, persons, spiceRate, recipeType, pseudo);
+    public Recipe(int idUser, String nameRecipe, String postDate, String summary, int persons, int prepTime, int spiceRate, String recipeType, String pseudo) {
+        this(-1, idUser, nameRecipe, postDate, summary, persons, prepTime, spiceRate, recipeType, pseudo);
     }
 
-    public Recipe(int idUser, String nameRecipe, String postDate, String summary, int persons, int spiceRate, String recipeType) {
-        this(-1, idUser, nameRecipe, postDate, summary, persons, spiceRate, recipeType, "");
+    public Recipe(int idUser, String nameRecipe, String postDate, String summary, int persons, int prepTime, int spiceRate, String recipeType) {
+        this(-1, idUser, nameRecipe, postDate, summary, persons, prepTime, spiceRate, recipeType, "");
     }
 
-    public Recipe() {
-
-    }
 
     public Recipe(int idRecipe, int idUser, String nameRecipe, String postDate, String summary, int persons, int spiceRate, String recipeType, String pseudo) {
+
+    }
+
+    public Recipe(int idRecipe, int idUser, String nameRecipe, String postDate, String summary, int persons, int prepTime, int spiceRate, String recipeType, String pseudo) {
+
         this.idRecipe = idRecipe;
         this.idUser = idUser;
         this.nameRecipe = nameRecipe;
         this.postDate = postDate;
         this.summary = summary;
         this.persons = persons;
+        this.prepTime = prepTime;
         this.spiceRate = spiceRate;
         this.recipeType = recipeType;
         this.pseudo = pseudo;
@@ -100,6 +104,14 @@ public class Recipe {
 
     public void setPersons(int persons) {
         this.persons = persons;
+    }
+
+    public int getPrepTime() {
+        return prepTime;
+    }
+
+    public void setPrepTime(int prepTime) {
+        this.prepTime = prepTime;
     }
 
     public int getSpiceRate() {
