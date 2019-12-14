@@ -69,7 +69,7 @@ public class RecipeDetail extends AppCompatActivity {
         tv_prepTime = findViewById(R.id.tvPrepTime);
         tv_recipeType = findViewById(R.id.tvRecipeType);
 
-        recipeID = getIntent().getIntExtra(RecipeSearch.EXTRA_SEARCH_ACTIVITY, 1);
+        recipeID = getIntent().getIntExtra(RecipeSearchActivity.EXTRA_SEARCH_ACTIVITY, 1);
 
         stepAdapter = new RecipeStepAdapter(this, R.id.lvSteps, steps);
         ingredientAdapter = new RecipeIngredientAdapter(this, R.id.ingredientList, ingredients);

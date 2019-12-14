@@ -8,7 +8,36 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="NoTitleBar" parent="Theme.AppCompat.NoActionBar">
+    <style name="NoTitleBar" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
+
+    <style name="Global" parent="NoTitleBar">
+        <item name="android:colorBackground">@color/backGround</item>
+    </style>
+
+
+    <style name="TxtSmBold">
+        <item name="android:textSize">@dimen/txt_sm</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TxtMdBold">
+        <item name="android:textSize">@dimen/txt_md</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TxtLgBold">
+        <item name="android:textSize">@dimen/txt_lg</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="EtSm">
+        <item name="android:textSize">@dimen/txt_sm</item>
+        <item name="android:maxWidth">@dimen/et_sm</item>
+    </style>
+    <style name="EtMd">
+        <item name="android:textSize">@dimen/txt_md</item>
+        <item name="android:maxWidth">@dimen/et_md</item>
+    </style>
+
 
 </resources>

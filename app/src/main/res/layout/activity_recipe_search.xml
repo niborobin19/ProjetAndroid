@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RecipeSearch">
+    tools:context=".activities.RecipeSearchActivity">
 
     <include
         android:id="@+id/include"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/searchEt"
+        android:id="@+id/search_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <ImageButton
-        android:id="@+id/searchBtn"
+        android:id="@+id/search_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -40,12 +40,12 @@
         android:onClick="searchRecipes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/searchEt"
+        app:layout_constraintStart_toEndOf="@+id/search_et"
         app:layout_constraintTop_toBottomOf="@+id/include"
         app:srcCompat="@android:drawable/ic_search_category_default" />
 
     <ListView
-        android:id="@+id/resultLv"
+        android:id="@+id/result_lv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="2dp"

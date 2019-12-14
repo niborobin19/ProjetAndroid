@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.models.Recipe;
+import com.example.cuisinhelha.services.RecipeRepositoryService;
 import com.example.cuisinhelha.services.ReviewRepositoryService;
 
 import java.util.List;
@@ -28,12 +31,7 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-        Log.wtf("randomStart", ""+position);
-        Log.wtf("item", getItem(position).toString());
-        Log.wtf("randomEnd", ""+position);
-
+    public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
         View v = convertView;
 
         if(v == null){
@@ -48,6 +46,26 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
         TextView tvDescription =  v.findViewById(R.id.descriptionTv);
         TextView tvSummary = v.findViewById(R.id.summaryTv);
         TextView tvInfo = v.findViewById(R.id.infoTv);
+        ImageButton btnDelete = v.findViewById(R.id.delete_btn);
+
+        ///TODO masquer si l'utilisateur n'est ni admin ni propriétaire
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecipeRepositoryService.delete(getItem(position).getIdRecipe()).enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        Log.wtf(getItem(position).getNameRecipe().toString(), getItem(position).getIdRecipe() + "");
+                        remove(getItem(position));
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Log.wtf("delete recipe", "la recette n'a pas pu être supprimée");
+                    }
+                });
+            }
+        });
 
         tvName.setText(recipe.getNameRecipe());
         tvDescription.setText( recipe.getRecipeType() + " for " + recipe.getPersons() + " people (" + recipe.getPrepTime() + " min)");
@@ -68,4 +86,5 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
                 });
         return v;
     }
+
 }

@@ -1,5 +1,7 @@
 package com.example.cuisinhelha.models;
 
+import retrofit2.Retrofit;
+
 public class Password {
     private int userId;
     private String passwordNew;

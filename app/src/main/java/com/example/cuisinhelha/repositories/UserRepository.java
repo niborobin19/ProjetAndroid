@@ -1,6 +1,7 @@
 package com.example.cuisinhelha.repositories;
 
 import com.example.cuisinhelha.Configuration;
+import com.example.cuisinhelha.models.AuthenticateUser;
 import com.example.cuisinhelha.models.Mail;
 import com.example.cuisinhelha.models.Password;
 import com.example.cuisinhelha.models.User;
@@ -21,6 +22,9 @@ public interface UserRepository {
 
     @POST(Configuration.API_USER)
     Call<User> post(@Body User user);
+
+    @POST(Configuration.API_USER+"authenticate")
+    Call<User> authenticate(@Body AuthenticateUser user);
 
     @PUT(Configuration.API_USER)
     Call<Void> put(@Body User user);
