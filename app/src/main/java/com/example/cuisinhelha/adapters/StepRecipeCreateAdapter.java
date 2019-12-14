@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,7 +27,7 @@ public class StepRecipeCreateAdapter extends ArrayAdapter<Step>{
 
     @NonNull
     @Override
-    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
         View v = convertView;
 
 
@@ -44,7 +45,7 @@ public class StepRecipeCreateAdapter extends ArrayAdapter<Step>{
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(getItem(position));
+                remove(getItem(position), parent);
                 updateStepNb();
             }
         });
@@ -57,5 +58,28 @@ public class StepRecipeCreateAdapter extends ArrayAdapter<Step>{
             items.get(i).setStepNb(i+1);
         }
         notifyDataSetChanged();
+    }
+
+    public void remove(@Nullable Step object, ViewGroup parent) {
+        super.remove(object);
+        updateParent(parent);
+    }
+
+    public void updateParent(ViewGroup parent){
+        ListView lv = (ListView)parent;
+        int totalHeight = 0;
+        for(int i = 0; i < lv.getAdapter().getCount(); i++)
+        {
+            Log.wtf("index", i+"");
+            View listItem = lv.getAdapter().getView(i, null, lv);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = lv.getLayoutParams();
+        params.height = totalHeight + (lv.getDividerHeight() * (lv.getAdapter().getCount() - 1));
+        lv.setLayoutParams(params);
+        lv.requestLayout();
+
     }
 }

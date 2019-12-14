@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -278,6 +279,7 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
             adapterIngredientRecipe.add(ingredient);
 
             resetIngredient();
+            updateListViewSize(lvIngredient);
         }catch (Exception e){
 
         }
@@ -291,6 +293,7 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
         adapterStepRecipe.updateStepNb();
 
         resetStep();
+        updateListViewSize(lvStep);
     }
 
 
@@ -315,6 +318,21 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
 
     private void resetStep() {
         etStep.setText("");
+    }
+
+    private void updateListViewSize(ListView lv){
+        int totalHeight = 0;
+        for(int i = 0; i < lv.getAdapter().getCount(); i++)
+        {
+            Log.wtf("index", i+"");
+            View listItem = lv.getAdapter().getView(i, null, lv);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = lv.getLayoutParams();
+        params.height = totalHeight + (lv.getDividerHeight() * (lv.getAdapter().getCount() - 1));
+        lv.setLayoutParams(params);
+        lv.requestLayout();
     }
 
     @Override

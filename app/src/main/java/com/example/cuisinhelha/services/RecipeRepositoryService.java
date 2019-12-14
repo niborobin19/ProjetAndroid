@@ -1,5 +1,7 @@
 package com.example.cuisinhelha.services;
 
+import android.util.Log;
+
 import com.example.cuisinhelha.Configuration;
 import com.example.cuisinhelha.models.Recipe;
 import com.example.cuisinhelha.repositories.RecipeRepository;
@@ -42,6 +44,8 @@ public class RecipeRepositoryService {
 
     public static Call<Void> put(Recipe recipe){return instance.repository.put(recipe);}
 
-    public static Call<Void> delete(int id){return instance.repository.delete(id);}
+    public static Call<Void> delete(int id){
+        Log.wtf("delete", id+"");
+        return instance.repository.delete(id);}
 
 }
