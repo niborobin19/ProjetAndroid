@@ -1,32 +1,53 @@
 package com.example.cuisinhelha.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.adapters.IngredientRecipeCreateAdapter;
 import com.example.cuisinhelha.adapters.StepRecipeCreateAdapter;
+import com.example.cuisinhelha.helpers.UserPreferences;
 import com.example.cuisinhelha.models.Ingredient;
+import com.example.cuisinhelha.models.Picture;
 import com.example.cuisinhelha.models.Recipe;
 import com.example.cuisinhelha.models.Step;
 import com.example.cuisinhelha.services.IngredientRepositoryService;
+import com.example.cuisinhelha.services.PictureRepositoryService;
 import com.example.cuisinhelha.services.RecipeRepositoryService;
 import com.example.cuisinhelha.services.StepRepositoryService;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -35,6 +56,11 @@ import retrofit2.Response;
 import com.example.cuisinhelha.interfaces.IHeaderNavigation;
 
 public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNavigation {
+
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int REQUEST_IMAGE_FILE = 2;
+
+    private SharedPreferences pref;
 
     private EditText etName;
     private EditText etSummary;
@@ -61,14 +87,24 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
     private List<Step> steps;
     private StepRecipeCreateAdapter adapterStepRecipe;
 
+    private Picture picture = new Picture(-1, "");
+    private ImageView ivPicture;
+    private String picturePath;
+    private Uri pictureUri;
+    private File pictureFile;
+    private Bitmap pictureBitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_create);
 
+        pref = getSharedPreferences(UserPreferences.PREFERENCES_NAME, MODE_PRIVATE);
+
         initializeEditTexts();
         initializeSpins();
         initializeListViews();
+        ivPicture = findViewById(R.id.recipe_picture_iv);
 
 
     }
@@ -194,10 +230,9 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
     public void postRecipe(View view)
     {
         try {
-            ///TODO remplacer le user
-            final Recipe recipe = new Recipe(7,
+            final Recipe recipe = new Recipe(pref.getInt(UserPreferences.ID_USER, 7),
                     etName.getText().toString(),
-                    Calendar.getInstance().toString(),
+                    new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()),
                     etSummary.getText().toString(),
                     Integer.parseInt(etPeople.getText().toString()),
                     Integer.parseInt(etTime.getText().toString()),
@@ -264,8 +299,36 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
             });
         }else
         {
-            resetForm();
+            postPicture(idRecipe);
         }
+    }
+
+    public void postPicture(final int idRecipe)
+    {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        pictureBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+        byte[] data = bos.toByteArray();
+        byte[] file = Base64.encode(data, Base64.DEFAULT);
+        String filecode = new String(file);
+
+        picture.setIdRecipe(idRecipe);
+        picture.setPicture(filecode);
+
+        PictureRepositoryService.post(picture).enqueue(new Callback<Picture>() {
+            @Override
+            public void onResponse(Call<Picture> call, Response<Picture> response) {
+                Picture respPicture = response.body();
+                byte[] data = Base64.decode(respPicture.getPicture(), Base64.DEFAULT);
+                Bitmap respImage = BitmapFactory.decodeByteArray(data, 0, data.length);
+                ivPicture.setImageBitmap(respImage);
+                resetForm();
+            }
+
+            @Override
+            public void onFailure(Call<Picture> call, Throwable t) {
+
+            }
+        });
     }
 
     public void addIngredient(View view) {
@@ -289,11 +352,12 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
     public void addStep(View view){
         Step step = new Step(-1, -1, -1, etStep.getText().toString());
 
-        adapterStepRecipe.add(step);
-        adapterStepRecipe.updateStepNb();
-
-        resetStep();
-        updateListViewSize(lvStep);
+        if(step.getStep() != "") {
+            adapterStepRecipe.add(step);
+            adapterStepRecipe.updateStepNb();
+            resetStep();
+            updateListViewSize(lvStep);
+        }
     }
 
 
@@ -351,5 +415,77 @@ public class RecipeCreateActivity extends AppCompatActivity implements IHeaderNa
     public void loadRecipeSearchActivity(View view) {
         Intent intent = new Intent(this, RecipeSearchActivity.class);
         startActivity(intent);
+    }
+
+    public void loadTakePictureIntent(View view) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    public void loadOpenPictureIntent(View view){
+        Intent filePictureIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        filePictureIntent.setType("image/*");
+        startActivityForResult(Intent.createChooser(filePictureIntent, "Select picture"), REQUEST_IMAGE_FILE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Log.wtf("datas", extras.toString());
+            pictureBitmap = (Bitmap) extras.get("data");
+            ivPicture.setImageBitmap(pictureBitmap);
+            // Create the File where the photo should go
+            pictureFile = null;
+            try {
+                pictureFile = createImageFile();
+            } catch (IOException ex) {
+                Log.wtf("Error", "Le fichier Image n'a pas pu être créé");
+            }
+            // Continue only if the File was successfully created
+            if (pictureFile != null) {
+                pictureUri = FileProvider.getUriForFile(this,
+                        "com.example.android.fileprovider",
+                        pictureFile);
+                try {
+                    FileOutputStream fos = new FileOutputStream(pictureFile);
+                    pictureBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+
+        if(requestCode == REQUEST_IMAGE_FILE && resultCode == RESULT_OK)
+        {
+
+            try {
+                pictureUri = data.getData();
+                pictureBitmap = BitmapFactory.decodeFileDescriptor(getContentResolver().openFileDescriptor(pictureUri, "r").getFileDescriptor());
+                ivPicture.setImageBitmap(pictureBitmap);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        picturePath = image.getAbsolutePath();
+        return image;
     }
 }

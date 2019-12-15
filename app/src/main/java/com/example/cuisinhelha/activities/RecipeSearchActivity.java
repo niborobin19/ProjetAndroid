@@ -35,10 +35,14 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
 
     private List<Recipe> recipes;
 
+    private SharedPreferences pref;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_search);
+        pref = getSharedPreferences(UserPreferences.PREFERENCES_NAME, MODE_PRIVATE);
 
         recipes = new ArrayList<>();
         recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3, 150, 3, "Dessert", "ElsaD"));
@@ -46,7 +50,7 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
         etSearch = findViewById(R.id.search_et);
         lvResult = findViewById(R.id.result_lv);
 
-        adapter = new RecipeSearchResultAdapter(this, R.id.result_lv, recipes);
+        adapter = new RecipeSearchResultAdapter(this, R.id.result_lv, recipes, pref.getInt(UserPreferences.ID_USER, -1), pref.getBoolean(UserPreferences.USER_TYPE, false));
         lvResult.setAdapter(adapter);
         lvResult.setOnItemClickListener(this);
     }

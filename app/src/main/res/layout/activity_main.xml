@@ -63,6 +63,9 @@
         android:layout_marginTop="20dp"
         android:onClick="authenticate"
         android:text="@string/btn_login"
+
+        android:textColor="@color/backGround"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -78,51 +81,30 @@
 
     <Button
         android:id="@+id/anonymous_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:onClick="onSignUpBtnClick"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/backGround"
         android:text="Sign up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintHorizontal_bias="0.316"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
     <Button
-        android:id="@+id/anonymous_btn2"
+        android:id="@+id/main_activity_btn_sign_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"
         android:onClick="onAnonymousBtnClick"
         android:text="@string/btn_continue"
+        android:textColor="@color/backGround"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintHorizontal_bias="0.752"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-
-    <Button
-        android:id="@+id/searchRecipeBtn"
-        android:layout_width="111dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="60dp"
-        android:onClick="loadRecipeSearchActivity"
-        android:text="Find a recipe"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anonymous_btn" />
-
-    <Button
-        android:id="@+id/createRecipeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:background="@color/backGround"
-        android:onClick="loadRecipeCreateActivity"
-        android:text="Ajout de recette"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchRecipeBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
