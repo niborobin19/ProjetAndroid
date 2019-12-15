@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/header_logo"
+        android:id="@+id/header_iv_header_logo"
         android:layout_width="273dp"
         android:layout_height="48dp"
         android:layout_marginTop="14dp"
@@ -18,27 +18,27 @@
         android:onClick="loadHomeActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/search_icon"
+        app:layout_constraintStart_toEndOf="@+id/header_iv_search_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_profile_icon"
+        android:id="@+id/header_iv_profile_icon"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="@dimen/header_icon_top_margin"
-        android:layout_marginEnd="@dimen/header_icon_x_margin"
+        android:layout_marginEnd="10dp"
         android:contentDescription="@string/profile_icon_description"
         android:onClick="loadProfileActivity"
-        app:layout_constraintEnd_toStartOf="@+id/header_logo"
+        app:layout_constraintEnd_toStartOf="@+id/header_iv_header_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_icon" />
 
 
     <ImageView
-        android:id="@+id/search_icon"
+        android:id="@+id/header_iv_search_icon"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="10dp"
@@ -47,7 +47,7 @@
         android:onClick="loadRecipeSearchActivity"
         android:contentDescription="@string/search_icon_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/header_logo"
+        app:layout_constraintStart_toEndOf="@+id/header_iv_header_logo"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/search_icon" />
 
