@@ -11,30 +11,52 @@
 
         <TextView
             android:id="@+id/tvRateReview"
-            android:layout_width="64dp"
+            android:layout_width="73dp"
             android:layout_height="wrap_content"
+            android:autoText="false"
             android:text="TextView"
             android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/tvUserNameReview"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvUserNameReview"
-            android:layout_width="139dp"
-            android:layout_height="wrap_content"
+            android:layout_width="131dp"
+            android:layout_height="22dp"
+            android:autoText="false"
             android:text="UserReview"
             android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvReview"
-            android:layout_width="206dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="44dp"
+            android:autoText="false"
             android:text="TextView"
             android:textColor="#000000"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvRateReview"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+
+            android:id="@+id/deleteReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#030303"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tint="#FFFFFF"
+            app:layout_constraintStart_toEndOf="@+id/tvReview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

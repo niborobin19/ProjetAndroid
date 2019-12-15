@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     tools:context=".activities.RecipeDetail">
 
     <include
@@ -17,26 +16,45 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include"
-        tools:layout_editor_absoluteX="122dp">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="visible">
 
+                <ImageView
+                    android:id="@+id/imgRecipe"
+                    android:layout_width="409dp"
+                    android:layout_height="243dp"
+                    tools:layout_editor_absoluteX="2dp"
+                    tools:layout_editor_absoluteY="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"  />
+<!--                android:src="@drawable/tartecitron"-->
+
                 <TextView
                     android:id="@+id/recipeTitleTV"
                     android:layout_width="0dp"
                     android:layout_height="105dp"
+                    android:layout_marginTop="243dp"
                     android:text="TextView"
                     android:textAlignment="center"
                     android:textColor="#000000"
@@ -45,6 +63,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgRecipe"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -55,6 +74,7 @@
                     android:text="Persons"
                     android:textColor="#000000"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/tvRecipeType"
                     app:layout_constraintTop_toBottomOf="@+id/recipeTitleTV" />
 
@@ -76,6 +96,7 @@
                     android:text="prepTime"
                     android:textColor="#000000"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recipeTitleTV" />
 
@@ -142,16 +163,6 @@
                 </ListView>
 
                 <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="169dp"
-                    android:layout_height="42dp"
-                    android:text="Reviews:"
-                    android:textColor="#000000"
-                    android:textSize="30sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lvSteps" />
-
-                <TextView
                     android:id="@+id/textView4"
                     android:layout_width="30dp"
                     android:layout_height="14dp"
@@ -162,11 +173,62 @@
                     app:layout_constraintStart_toEndOf="@+id/tvPrepTime"
                     app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="169dp"
+                    android:layout_height="42dp"
+                    android:text="Reviews:"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lvSteps" />
+
                 <ListView
                     android:id="@+id/lvReview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="3dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPostReview" />
+
+                <EditText
+                    android:id="@+id/etMessageReview"
+                    android:layout_width="333dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="review"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                <RatingBar
+                    android:id="@+id/ratingBarReview"
+                    android:layout_width="244dp"
+                    android:layout_height="51dp"
+                    android:indeterminate="false"
+                    android:max="5"
+                    android:numStars="5"
+                    android:stepSize="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etMessageReview" />
+
+                <Button
+                    android:id="@+id/btnPostReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="19dp"
+
+                    android:onClick="postReview"
+                    android:text="Post Review"
+                    android:textColor="@color/backGround"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ratingBarReview"
+                    app:layout_constraintTop_toBottomOf="@+id/etMessageReview" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -33,4 +33,10 @@ public class HomeActivity extends AppCompatActivity implements IHeaderNavigation
 
     @Override
     public void loadHomeActivity(View view) {}
+
+
+    public void loadRecipeCreateActivity(View view) {
+        Intent intent = new Intent(this, RecipeCreateActivity.class);
+        startActivity(intent);
+    }
 }

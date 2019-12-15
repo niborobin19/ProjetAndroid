@@ -1,5 +1,7 @@
 package com.example.cuisinhelha.models;
 
+import java.util.regex.Pattern;
+
 public class User {
     private int idUser;
     private String firstName;
