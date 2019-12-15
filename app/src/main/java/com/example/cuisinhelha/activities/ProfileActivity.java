@@ -5,27 +5,43 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cuisinhelha.R;
+import com.example.cuisinhelha.adapters.UserRecipeAdapter;
+import com.example.cuisinhelha.adapters.UserReviewAdaper;
 import com.example.cuisinhelha.helpers.UserPattern;
 import com.example.cuisinhelha.helpers.UserPreferences;
 import com.example.cuisinhelha.interfaces.IHeaderNavigation;
 import com.example.cuisinhelha.models.MailUser;
 import com.example.cuisinhelha.models.PasswordUser;
+import com.example.cuisinhelha.models.Recipe;
+import com.example.cuisinhelha.models.Review;
+import com.example.cuisinhelha.services.RecipeRepositoryService;
+import com.example.cuisinhelha.services.ReviewRepositoryService;
 import com.example.cuisinhelha.services.UserRepositoryService;
 import com.example.cuisinhelha.utils.SHA256Hasher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfileActivity extends AppCompatActivity implements IHeaderNavigation {
+    private static final String EXTRA_PROFILE_ACTIVITY = "EXTRA_SEARCH_ACTIVITY";
+
+    private SharedPreferences pref;
+
     private ImageView ivProfile;
     private TextView tvName;
     private TextView tvError;
@@ -43,6 +59,14 @@ public class ProfileActivity extends AppCompatActivity implements IHeaderNavigat
     private boolean isNavigating;
 
     private String newMail;
+
+    private List<Recipe> recipes;
+    private ListView lvRecipe;
+    private UserRecipeAdapter recipeAdapter;
+
+    private List<Review> reviews;
+    private ListView lvReview;
+    private UserReviewAdaper reviewAdaper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +89,42 @@ public class ProfileActivity extends AppCompatActivity implements IHeaderNavigat
 
 
         // If there's no token stored, send the user to the HomeActivity.
-        SharedPreferences pref = getSharedPreferences(UserPreferences.PREFERENCES_NAME, MODE_PRIVATE);
+        pref = getSharedPreferences(UserPreferences.PREFERENCES_NAME, MODE_PRIVATE);
         if (!UserPreferences.isConnected(pref)) {
             loadMainActivity();
         }
 
-        String fullName = pref.getString(UserPreferences.FIRST_NAME, "") + " " + pref.getString(UserPreferences.LAST_NAME, "");
+        recipes = new ArrayList<>();
+        reviews = new ArrayList<>();
+
+        lvRecipe = findViewById(R.id.user_recipe_lv);
+        lvReview = findViewById(R.id.user_review_lv);
+
+        recipeAdapter = new UserRecipeAdapter(this, R.id.user_recipe_lv, recipes);
+        reviewAdaper = new UserReviewAdaper(this, R.id.user_review_lv, reviews);
+
+        lvRecipe.setAdapter(recipeAdapter);
+        lvRecipe.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                loadDetailsActivity(recipes.get(position).getIdRecipe());
+            }
+        });
+        lvReview.setAdapter(reviewAdaper);
+        lvReview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                loadDetailsActivity(reviews.get(position).getIdRecipe());
+            }
+        });
+
+        loadRecipes();
+        loadReviews();
+
+
+        String fullName = pref.getString(UserPreferences.FIRST_NAME, "") +
+                " '" + pref.getString(UserPreferences.PSEUDO, "") + "' " +
+                pref.getString(UserPreferences.LAST_NAME, "");
         String mail = pref.getString(UserPreferences.MAIL, "");
 
 
@@ -384,5 +438,58 @@ public class ProfileActivity extends AppCompatActivity implements IHeaderNavigat
 
     @Override
     public void loadProfileActivity(View view) {
+    }
+
+    public void loadDetailsActivity(int id)
+    {
+        Intent intent = new Intent(this, RecipeDetail.class);
+        intent.putExtra(EXTRA_PROFILE_ACTIVITY, id);
+        startActivity(intent);
+    }
+
+    public void loadRecipes()
+    {
+        RecipeRepositoryService.queryByUser(pref.getInt(UserPreferences.ID_USER, -1)).enqueue(new Callback<List<Recipe>>() {
+            @Override
+            public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                recipeAdapter.addAll(response.body());
+                updateListViewSize(lvRecipe);
+            }
+
+            @Override
+            public void onFailure(Call<List<Recipe>> call, Throwable t) {
+                Log.wtf("query", "une erreur est survenue lors de la connection à la table recipes");
+            }
+        });
+    }
+
+    public void loadReviews()
+    {
+        ReviewRepositoryService.queryByUser(pref.getInt(UserPreferences.ID_USER, -1)).enqueue(new Callback<List<Review>>() {
+            @Override
+            public void onResponse(Call<List<Review>> call, Response<List<Review>> response) {
+                reviewAdaper.addAll(response.body());
+                updateListViewSize(lvReview);
+            }
+
+            @Override
+            public void onFailure(Call<List<Review>> call, Throwable t) {
+                Log.wtf("query", "une erreur est survenue lors de la connection à la table reviews");
+            }
+        });
+    }
+
+    private void updateListViewSize(ListView lv){
+        int totalHeight = 0;
+        for(int i = 0; i < lv.getAdapter().getCount(); i++)
+        {
+            View listItem = lv.getAdapter().getView(i, null, lv);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = lv.getLayoutParams();
+        params.height = totalHeight + (lv.getDividerHeight() * (lv.getAdapter().getCount() - 1));
+        lv.setLayoutParams(params);
+        lv.requestLayout();
     }
 }

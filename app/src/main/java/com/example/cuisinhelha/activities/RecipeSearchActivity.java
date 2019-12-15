@@ -45,7 +45,6 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
         pref = getSharedPreferences(UserPreferences.PREFERENCES_NAME, MODE_PRIVATE);
 
         recipes = new ArrayList<>();
-        recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3, 150, 3, "Dessert", "ElsaD"));
 
         etSearch = findViewById(R.id.search_et);
         lvResult = findViewById(R.id.result_lv);
@@ -70,7 +69,6 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
                     public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
                         recipes.clear();
                         recipes.addAll(response.body());
-                        //Log.wtf("recipes", recipes.toString());
                         adapter.notifyDataSetChanged();
                     }
 

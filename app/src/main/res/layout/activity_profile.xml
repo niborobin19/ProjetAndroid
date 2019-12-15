@@ -15,234 +15,291 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/tv_user_details"
-        style="@style/TxtLgBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/user_details"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include2" />
-
-    <TextView
-        android:id="@+id/tv_user_name"
-        style="@style/TxtSmBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/user_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_details" />
-
-    <TextView
-        android:id="@+id/tv_user_mail"
-        style="@style/TxtSmBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="@string/user_mail"
-        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
-
-    <TextView
-        android:id="@+id/tv_user_password"
-        style="@style/TxtSmBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        android:text="@string/user_password"
-        app:layout_constraintStart_toStartOf="@+id/tv_user_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_mail" />
-
-    <TextView
-        android:id="@+id/profile_tv_user_name_value"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:textSize="@dimen/txt_sm"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_user_name"
-        app:layout_constraintStart_toEndOf="@+id/tv_user_name"
-        app:layout_constraintTop_toTopOf="@+id/tv_user_name"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/profile_et_user_mail"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="textEmailAddress"
-        android:textSize="@dimen/txt_sm"
-        app:layout_constraintStart_toStartOf="@+id/profile_tv_user_name_value"
-        app:layout_constraintTop_toBottomOf="@+id/profile_tv_user_name_value" />
-
-    <EditText
-        android:id="@+id/profile_et_user_mail_confirm"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:textSize="@dimen/txt_sm"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_mail"
-        app:layout_constraintStart_toEndOf="@+id/profile_et_user_mail"
-        app:layout_constraintTop_toTopOf="@+id/profile_et_user_mail" />
-
-    <EditText
-        android:id="@+id/profile_et_user_old_password"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Enter your old password"
-        android:inputType="textPassword"
-        android:textSize="@dimen/txt_sm"
-        app:layout_constraintStart_toStartOf="@+id/profile_tv_user_name_value"
-        app:layout_constraintTop_toBottomOf="@+id/profile_et_user_mail" />
-
-    <EditText
-        android:id="@+id/profile_et_user_password"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="textPassword"
-        android:textSize="@dimen/txt_sm"
-        app:layout_constraintStart_toStartOf="@+id/profile_tv_user_name_value"
-        app:layout_constraintTop_toBottomOf="@+id/profile_et_user_mail" />
-
-    <EditText
-        android:id="@+id/profile_et_user_password_confirm"
-        android:layout_width="122dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:textSize="@dimen/txt_sm"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_password"
-        app:layout_constraintStart_toStartOf="@+id/profile_et_user_mail_confirm"
-        app:layout_constraintTop_toTopOf="@+id/profile_et_user_password" />
-
-
-    <TextView
-        android:id="@+id/tv_user_recipes"
-        style="@style/TxtLgBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="185dp"
-        android:text="@string/user_recipes"
-        app:layout_constraintStart_toStartOf="@+id/tv_user_details"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_details" />
-
-    <TextView
-        android:id="@+id/tv_user_comments"
-        style="@style/TxtLgBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="@string/user_comments"
-        app:layout_constraintStart_toStartOf="@+id/tv_user_details"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_recipes" />
-
     <ImageView
         android:id="@+id/iv_log_out"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:onClick="logOut"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/log_out_icon" />
 
-    <ImageButton
-        android:id="@+id/profile_ib_save_mail"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        android:onClick="saveNewMail"
-        android:textColor="@color/backGround"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_ib_edit_mail"
-        app:layout_constraintEnd_toEndOf="@+id/profile_ib_edit_mail"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/profile_ib_edit_mail"
-        app:layout_constraintTop_toTopOf="@+id/profile_ib_edit_mail"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/done_icon" />
-
-    <ImageButton
-        android:id="@+id/profile_ib_edit_mail"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="2dp"
-        android:onClick="onEditMailClick"
-
-        android:textColor="@color/backGround"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_mail_confirm"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/profile_et_user_mail_confirm"
-        app:layout_constraintTop_toTopOf="@+id/profile_et_user_mail_confirm"
-        app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/edit_icon" />
-
-    <ImageButton
-        android:id="@+id/profile_ib_save_password"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        android:onClick="saveNewPassword"
-        android:textColor="@color/backGround"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_ib_edit_password"
-        app:layout_constraintEnd_toEndOf="@+id/profile_ib_edit_password"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/profile_ib_edit_password"
-        app:layout_constraintTop_toTopOf="@+id/profile_ib_edit_password"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/done_icon" />
-
-    <ImageButton
-        android:id="@+id/profile_ib_edit_password"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="2dp"
-        android:onClick="onEditPswClick"
-
-        android:textColor="@color/backGround"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_password_confirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/profile_et_user_password_confirm"
-        app:layout_constraintTop_toTopOf="@+id/profile_et_user_password_confirm"
-        app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/edit_icon" />
-
-    <TextView
-        android:id="@+id/profile_tv_error"
-        style="@style/TxtSmBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toTopOf="@+id/tv_user_recipes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_et_user_password"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/include2">
 
-    <TextView
-        android:id="@+id/profile_tv_success"
-        style="@style/TxtSmBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/success"
-        app:layout_constraintBottom_toTopOf="@+id/tv_user_recipes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_et_user_password"
-        app:layout_constraintVertical_bias="0.2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/profile_tv_error"
+                    style="@style/TxtSmBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_et_user_password" />
+
+                <EditText
+                    android:id="@+id/profile_et_user_mail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="190dp"
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/txt_sm"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_user_mail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_user_mail"
+                    app:layout_constraintTop_toTopOf="@+id/tv_user_mail" />
+
+                <TextView
+                    android:id="@+id/tv_user_mail"
+                    style="@style/TxtSmBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/user_mail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
+
+                <EditText
+                    android:id="@+id/profile_et_user_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="190dp"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/txt_sm"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_user_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_user_password"
+                    app:layout_constraintTop_toTopOf="@+id/tv_user_password"
+                    app:layout_constraintVertical_bias="0.42" />
+
+                <EditText
+                    android:id="@+id/profile_et_user_old_password"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="190dp"
+                    android:hint="Enter your old password"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/txt_sm"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_user_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tv_user_password"
+                    app:layout_constraintTop_toTopOf="@+id/tv_user_password"
+                    app:layout_constraintVertical_bias="0.42" />
+
+                <TextView
+                    android:id="@+id/profile_tv_success"
+                    style="@style/TxtSmBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/success"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_et_user_password" />
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    style="@style/TxtSmBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/user_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_details" />
+
+                <TextView
+                    android:id="@+id/tv_user_recipes"
+                    style="@style/TxtLgBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="36dp"
+                    android:text="@string/user_recipes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_password" />
+
+                <TextView
+                    android:id="@+id/tv_user_comments"
+                    style="@style/TxtLgBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/user_comments"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_recipe_lv" />
+
+                <TextView
+                    android:id="@+id/profile_tv_user_name_value"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="32dp"
+                    android:textSize="@dimen/txt_sm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.166"
+                    app:layout_constraintStart_toEndOf="@+id/tv_user_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_details" />
+
+                <ImageButton
+                    android:id="@+id/profile_ib_save_password"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="11dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:onClick="saveNewPassword"
+                    android:textColor="@color/backGround"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_password_confirm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/profile_et_user_password_confirm"
+                    app:layout_constraintTop_toTopOf="@+id/profile_et_user_password_confirm"
+                    app:srcCompat="@drawable/done_icon" />
+
+                <ImageButton
+                    android:id="@+id/profile_ib_edit_password"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="11dp"
+
+                    android:background="@color/colorPrimaryDark"
+                    android:onClick="onEditPswClick"
+                    android:textColor="@color/backGround"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_password_confirm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/profile_et_user_password_confirm"
+                    app:layout_constraintTop_toTopOf="@+id/profile_et_user_password_confirm"
+                    app:srcCompat="@drawable/edit_icon" />
+
+                <ImageButton
+                    android:id="@+id/profile_ib_save_mail"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="11dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:onClick="saveNewMail"
+                    android:textColor="@color/backGround"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_mail_confirm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/profile_et_user_mail_confirm"
+                    app:layout_constraintTop_toTopOf="@+id/profile_et_user_mail_confirm"
+                    app:srcCompat="@drawable/done_icon" />
+
+                <ImageButton
+                    android:id="@+id/profile_ib_edit_mail"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+
+                    android:layout_marginStart="11dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:onClick="onEditMailClick"
+                    android:textColor="@color/backGround"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_mail_confirm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/profile_et_user_mail_confirm"
+                    app:layout_constraintTop_toTopOf="@+id/profile_et_user_mail_confirm"
+                    app:srcCompat="@drawable/edit_icon" />
+
+                <EditText
+                    android:id="@+id/profile_et_user_mail_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:inputType="textEmailAddress"
+                    android:textSize="@dimen/txt_sm"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_mail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/profile_et_user_mail"
+                    app:layout_constraintTop_toTopOf="@+id/profile_et_user_mail" />
+
+                <EditText
+                    android:id="@+id/profile_et_user_password_confirm"
+                    android:layout_width="122dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="64dp"
+                    android:inputType="textPassword"
+                    android:textSize="@dimen/txt_sm"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_et_user_old_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/profile_et_user_password"
+                    app:layout_constraintTop_toTopOf="@+id/profile_et_user_password"
+                    app:layout_constraintVertical_bias="0.4" />
+
+                <TextView
+                    android:id="@+id/tv_user_details"
+                    style="@style/TxtLgBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="64dp"
+                    android:text="@string/user_details"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_user_password"
+                    style="@style/TxtSmBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:text="@string/user_password"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_mail" />
+
+                <ListView
+                    android:id="@+id/user_recipe_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_recipes" />
+
+                <ListView
+                    android:id="@+id/user_review_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_user_comments" />
+
+                <Button
+                    android:id="@+id/end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/user_review_lv"
+                    tools:visibility="invisible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

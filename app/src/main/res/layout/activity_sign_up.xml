@@ -6,296 +6,315 @@
     android:layout_height="match_parent"
     tools:context=".activities.SignUpActivity">
 
-    <TextView
-        android:id="@+id/sign_up_tv_first_name_error"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_first_name"
-        app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_first_name"
-        app:layout_constraintHorizontal_bias="0.413"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sign_up_tv_first_name"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/sign_up_tv_last_name_error"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_last_name"
-        app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_last_name"
-        app:layout_constraintHorizontal_bias="0.409"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sign_up_tv_last_name"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/sign_up_tv_pseudo_error"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintHorizontal_bias="0.313"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintVertical_bias="1" />
-
-    <TextView
-        android:id="@+id/sign_up_tv_password_confirm_error"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_password_confirm"
-        app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_password_confirm"
-        app:layout_constraintHorizontal_bias="0.301"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sign_up_tv_password_confirm"
-        app:layout_constraintVertical_bias="1.0" />
-
     <include
         android:id="@+id/include3"
         layout="@layout/header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="731dp" />
 
-    <TextView
-        android:id="@+id/sign_up_tv_pseudo"
-        style="@style/TxtMdBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Pseudo:"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include3" />
-
-
-    <EditText
-        android:id="@+id/sign_up_et_pseudo"
-        style="@style/EtSm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Your pseudo"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/sign_up_tv_password"
-        style="@style/TxtMdBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Password:"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_pseudo" />
-
-    <EditText
-        android:id="@+id/sign_up_et_password"
-        style="@style/EtSm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Your password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <TextView
-        android:id="@+id/sign_up_tv_password_confirm"
-        style="@style/TxtMdBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Confirm password:"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password" />
-
-    <EditText
-        android:id="@+id/sign_up_et_password_confirm"
-        style="@style/EtSm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Confirm your password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_password_confirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password_confirm"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <TextView
-        android:id="@+id/sign_up_tv_first_name"
-        style="@style/TxtMdBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="First name:"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password_confirm" />
-
-    <EditText
-        android:id="@+id/sign_up_et_first_name"
-        style="@style/EtSm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Your first name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_first_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_first_name"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <TextView
-        android:id="@+id/sign_up_tv_last_name"
-        style="@style/TxtMdBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Last name:"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_first_name" />
-
-    <EditText
-        android:id="@+id/sign_up_et_last_name"
-        style="@style/EtSm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Your last name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_last_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_last_name"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <TextView
-        android:id="@+id/sign_up_tv_mail"
-        style="@style/TxtMdBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Mail:"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_last_name" />
-
-    <EditText
-        android:id="@+id/sign_up_et_mail"
-        style="@style/EtSm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:ems="10"
-        android:hint="Your mail address"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_mail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_mail"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <Button
-        android:id="@+id/sign_up_btn_sign_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="48dp"
-        android:onClick="onSignUpClick"
-        android:text="Sign up"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_et_mail"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/include3">
 
-    <TextView
-        android:id="@+id/sign_up_tv_mail_error"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_mail"
-        app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_mail"
-        app:layout_constraintHorizontal_bias="0.307"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sign_up_tv_mail"
-        app:layout_constraintVertical_bias="1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/sign_up_tv_password_error"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_password"
-        app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_password"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sign_up_tv_password"
-        app:layout_constraintVertical_bias="1" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/sign_up_tv_used"
-        style="@style/TxtXsBold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:text="Pseudo or mail already in use."
-        android:textColor="@color/error"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/sign_up_btn_sign_up"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="@+id/sign_up_btn_sign_up"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_btn_sign_up"
-        app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_first_name_error"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_first_name"
+                    app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_first_name"
+                    app:layout_constraintHorizontal_bias="0.413"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sign_up_tv_first_name"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_last_name_error"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_last_name"
+                    app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_last_name"
+                    app:layout_constraintHorizontal_bias="0.409"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sign_up_tv_last_name"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_pseudo_error"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintHorizontal_bias="0.313"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintVertical_bias="1" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_password_confirm_error"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_password_confirm"
+                    app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_password_confirm"
+                    app:layout_constraintHorizontal_bias="0.301"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sign_up_tv_password_confirm"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_pseudo"
+                    style="@style/TxtMdBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="Pseudo:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/include3" />
+
+
+                <EditText
+                    android:id="@+id/sign_up_et_pseudo"
+                    style="@style/EtSm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Your pseudo"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_password"
+                    style="@style/TxtMdBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Password:"
+                    app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_pseudo" />
+
+                <EditText
+                    android:id="@+id/sign_up_et_password"
+                    style="@style/EtSm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Your password"
+                    android:inputType="textPassword"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <TextView
+                    android:id="@+id/sign_up_tv_password_confirm"
+                    style="@style/TxtMdBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Confirm password:"
+                    app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password" />
+
+                <EditText
+                    android:id="@+id/sign_up_et_password_confirm"
+                    style="@style/EtSm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Confirm your password"
+                    android:inputType="textPassword"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_password_confirm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password_confirm"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <TextView
+                    android:id="@+id/sign_up_tv_first_name"
+                    style="@style/TxtMdBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="First name:"
+                    app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_password_confirm" />
+
+                <EditText
+                    android:id="@+id/sign_up_et_first_name"
+                    style="@style/EtSm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Your first name"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_first_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_first_name"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <TextView
+                    android:id="@+id/sign_up_tv_last_name"
+                    style="@style/TxtMdBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Last name:"
+                    app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_first_name" />
+
+                <EditText
+                    android:id="@+id/sign_up_et_last_name"
+                    style="@style/EtSm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Your last name"
+                    android:inputType="textPersonName"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_last_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_last_name"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <TextView
+                    android:id="@+id/sign_up_tv_mail"
+                    style="@style/TxtMdBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:text="Mail:"
+                    app:layout_constraintEnd_toEndOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_tv_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_last_name" />
+
+                <EditText
+                    android:id="@+id/sign_up_et_mail"
+                    style="@style/EtSm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:ems="10"
+                    android:hint="Your mail address"
+                    android:inputType="textEmailAddress"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_up_tv_mail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_et_pseudo"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_tv_mail"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <Button
+                    android:id="@+id/sign_up_btn_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="48dp"
+                    android:onClick="onSignUpClick"
+                    android:text="Sign up"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_et_mail"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_mail_error"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_mail"
+                    app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_mail"
+                    app:layout_constraintHorizontal_bias="0.307"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sign_up_tv_mail"
+                    app:layout_constraintVertical_bias="1" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_password_error"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="@+id/sign_up_tv_password"
+                    app:layout_constraintEnd_toStartOf="@+id/sign_up_tv_password"
+                    app:layout_constraintHorizontal_bias="0.384"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/sign_up_tv_password"
+                    app:layout_constraintVertical_bias="1" />
+
+                <TextView
+                    android:id="@+id/sign_up_tv_used"
+                    style="@style/TxtXsBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Pseudo or mail already in use."
+                    android:textColor="@color/error"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/sign_up_btn_sign_up"
+                    app:layout_constraintHorizontal_bias="0.482"
+                    app:layout_constraintStart_toStartOf="@+id/sign_up_btn_sign_up"
+                    app:layout_constraintTop_toBottomOf="@+id/sign_up_btn_sign_up"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

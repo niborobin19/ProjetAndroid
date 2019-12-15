@@ -136,7 +136,7 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
         loadStep();
         loadIngredient();
         loadReview();
-        //loadPicture();
+        loadPicture();
         tv_recipeTitle.setText(currentRecipe.getNameRecipe());
 
         tv_recipeType.setText(currentRecipe.getRecipeType());
@@ -238,10 +238,12 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
         PictureRepositoryService.queryByRecipe(recipeID).enqueue(new Callback<List<Picture>>() {
             @Override
             public void onResponse(Call<List<Picture>> call, Response<List<Picture>> response) {
-                Picture respPicture = (Picture) response.body();
-                byte[] data = Base64.decode(respPicture.getPicture(), Base64.DEFAULT);
-                Bitmap respImage = BitmapFactory.decodeByteArray(data, 0, data.length);
-                imgRecipe.setImageBitmap(respImage);
+                if(response.body().size() > 0) {
+                    Picture respPicture = (Picture) response.body().get(0);
+                    byte[] data = Base64.decode(respPicture.getPicture(), Base64.DEFAULT);
+                    Bitmap respImage = BitmapFactory.decodeByteArray(data, 0, data.length);
+                    imgRecipe.setImageBitmap(respImage);
+                }
             }
 
             @Override
@@ -254,7 +256,6 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
         int totalHeight = 0;
         for(int i = 0; i < lv.getAdapter().getCount(); i++)
         {
-            Log.wtf("index", i+"");
             View listItem = lv.getAdapter().getView(i, null, lv);
             listItem.measure(0, 0);
             totalHeight += listItem.getMeasuredHeight();
@@ -264,7 +265,6 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
         params.height = totalHeight + (lv.getDividerHeight() * (lv.getAdapter().getCount() - 1));
         lv.setLayoutParams(params);
         lv.requestLayout();
-        Log.wtf("ERROR", params.height+"");
     }
 
     @Override
