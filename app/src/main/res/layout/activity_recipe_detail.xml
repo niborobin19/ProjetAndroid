@@ -38,18 +38,32 @@
                 android:layout_height="wrap_content"
                 android:visibility="visible">
 
+                <ImageView
+                    android:id="@+id/imgRecipe"
+                    android:layout_width="409dp"
+                    android:layout_height="243dp"
+                    tools:layout_editor_absoluteX="2dp"
+                    tools:layout_editor_absoluteY="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"  />
+<!--                android:src="@drawable/tartecitron"-->
+
                 <TextView
                     android:id="@+id/recipeTitleTV"
                     android:layout_width="0dp"
                     android:layout_height="105dp"
+                    android:layout_marginTop="243dp"
                     android:text="TextView"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="12sp"
                     app:autoSizeTextType="uniform"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgRecipe"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -60,6 +74,7 @@
                     android:text="Persons"
                     android:textColor="#000000"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/tvRecipeType"
                     app:layout_constraintTop_toBottomOf="@+id/recipeTitleTV" />
 
@@ -81,6 +96,7 @@
                     android:text="prepTime"
                     android:textColor="#000000"
                     android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recipeTitleTV" />
 
@@ -204,8 +220,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="19dp"
+
                     android:onClick="postReview"
                     android:text="Post Review"
+                    android:textColor="@color/backGround"
+                    android:background="@color/colorPrimaryDark"
+                    android:padding="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/ratingBarReview"
                     app:layout_constraintTop_toBottomOf="@+id/etMessageReview" />

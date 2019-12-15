@@ -63,6 +63,9 @@
         android:layout_marginTop="20dp"
         android:onClick="authenticate"
         android:text="@string/btn_login"
+
+        android:textColor="@color/backGround"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
@@ -78,11 +81,14 @@
 
     <Button
         android:id="@+id/anonymous_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="139dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:background="@color/colorPrimaryDark"
         android:onClick="onAnonymousBtnClick"
+
         android:text="@string/btn_continue"
+        android:textColor="@color/backGround"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,6 +101,9 @@
         android:layout_marginTop="60dp"
         android:onClick="loadRecipeSearchActivity"
         android:text="Find a recipe"
+
+        android:textColor="@color/backGround"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,9 +114,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@color/backGround"
         android:onClick="loadRecipeCreateActivity"
         android:text="Ajout de recette"
+        android:textColor="@color/backGround"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

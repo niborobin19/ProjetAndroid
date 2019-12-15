@@ -81,21 +81,29 @@
 
         <ImageButton
             android:id="@+id/delete-btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="38dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:textColor="@color/backGround"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.384"
             app:layout_constraintStart_toEndOf="@+id/rateAvgTv"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_delete"
-            android:focusable="false"
-            android:focusableInTouchMode="false"/>
+            app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <ImageButton
             android:id="@+id/details-btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="38dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/backGround"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.384"
             app:layout_constraintStart_toEndOf="@+id/summaryTv"
             app:layout_constraintTop_toBottomOf="@+id/delete-btn"
             app:srcCompat="@android:drawable/ic_menu_info_details" />
