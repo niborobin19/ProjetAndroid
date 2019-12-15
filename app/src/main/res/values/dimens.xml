@@ -6,6 +6,7 @@
     <dimen name="header_icon_x_margin">16dp</dimen>
 
     /** TEXT **/
+    <dimen name="txt_xs">13sp</dimen>
     <dimen name="txt_sm">16sp</dimen>
     <dimen name="txt_md">20sp</dimen>
     <dimen name="txt_lg">26sp</dimen>

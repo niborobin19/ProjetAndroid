@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements IHeaderNavigation
     private EditText etPassword;
     private TextView tvError;
     private ProgressBar pbLogin;
+    private ImageView ivProfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity implements IHeaderNavigation
         etPassword = findViewById(R.id.et_password);
         tvError = findViewById(R.id.tv_error);
         pbLogin = findViewById(R.id.main_pb_login);
+        ivProfil = findViewById(R.id.header_iv_profile_icon);
 
+        ivProfil.setVisibility(View.INVISIBLE);
         pbLogin.setVisibility(View.INVISIBLE);
     }
 
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements IHeaderNavigation
 
                         // Sets the user token
                         String token = response.body().getToken();
-                        setUserToken(token);
+                        MainActivity.setUserToken(token);
 
                         loadHomeActivity(null);
 
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements IHeaderNavigation
 
     }
 
-    private void putUser(User user) {
+    void putUser(User user) {
         SharedPreferences preferences = getSharedPreferences("user", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         UserPreferences.putPreferences(user, editor);
@@ -126,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements IHeaderNavigation
         updateTvError(error, true);
     }
 
-    private void setUserToken(String token) {
+    public static void setUserToken(String token) {
         UserRepositoryService.USER_TOKEN = "Bearer " + token;
     }
 
@@ -155,6 +159,11 @@ public class MainActivity extends AppCompatActivity implements IHeaderNavigation
 
     public void loadRecipeCreateActivity(View view) {
         Intent intent = new Intent(this, RecipeCreateActivity.class);
+        startActivity(intent);
+    }
+
+    public void onSignUpBtnClick(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 }

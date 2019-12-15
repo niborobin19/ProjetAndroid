@@ -12,17 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ProfileActivity"
+        <activity
+            android:name=".activities.SignUpActivity"
             android:theme="@style/Global"/>
-        <activity android:name=".activities.RecipeCreateActivity"
+        <activity
+            android:name=".activities.ProfileActivity"
             android:theme="@style/Global" />
-        <activity android:name=".activities.RecipeSearchActivity"
+        <activity
+            android:name=".activities.RecipeCreateActivity"
             android:theme="@style/Global" />
-        <activity android:name=".activities.HomeActivity"
+        <activity
+            android:name=".activities.RecipeSearchActivity"
             android:theme="@style/Global" />
-        <activity android:name=".activities.RecipeDetail"
+        <activity
+            android:name=".activities.HomeActivity"
             android:theme="@style/Global" />
-        <activity android:name=".activities.MainActivity"
+        <activity
+            android:name=".activities.RecipeDetail"
+            android:theme="@style/Global" />
+        <activity
+            android:name=".activities.MainActivity"
             android:noHistory="true"
             android:theme="@style/Global">
             <intent-filter>
@@ -31,16 +40,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		
-        <!-- <activity android:name=".MainActivity"
-            android:theme="@style/NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".HomeActivity"></activity> -->
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.example.cuisinhelha.services;
 
 import com.example.cuisinhelha.Configuration;
 import com.example.cuisinhelha.helpers.UserPattern;
+import com.example.cuisinhelha.models.AnswerDB;
 import com.example.cuisinhelha.models.AuthenticateUser;
 import com.example.cuisinhelha.models.MailUser;
 import com.example.cuisinhelha.models.PasswordUser;
@@ -14,6 +15,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class UserRepositoryService {
     public static final UserRepositoryService instance = new UserRepositoryService();
@@ -43,7 +45,7 @@ public class UserRepositoryService {
         return instance.repository.authenticate(user);
     }
 
-    public static Call<User> post(User user) {
+    public static Call<AnswerDB> post(User user) {
         return instance.repository.post(user);
     }
 
@@ -51,9 +53,14 @@ public class UserRepositoryService {
         return instance.repository.put(user);
     }
 
+//    public static Call<Boolean> putPassword(PasswordUser user) {
+//        return instance.repository.putPassword(USER_TOKEN, user);
+//    }
+
     public static Call<Boolean> putPassword(PasswordUser user) {
-        return instance.repository.putPassword(USER_TOKEN, user);
+        return instance.repository.putPassword(UserRepositoryService.USER_TOKEN, user);
     }
+
 
     public static Call<Boolean> putMail(MailUser user) {
         return instance.repository.putMail(USER_TOKEN, user);
@@ -75,6 +82,7 @@ public class UserRepositoryService {
     private void init() {
         repository = new Retrofit.Builder()
                 .baseUrl(Configuration.BASE_API_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(UserRepository.class);

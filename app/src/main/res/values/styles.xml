@@ -16,6 +16,10 @@
     </style>
 
 
+    <style name="TxtXsBold">
+        <item name="android:textSize">@dimen/txt_xs</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="TxtSmBold">
         <item name="android:textSize">@dimen/txt_sm</item>
         <item name="android:textStyle">bold</item>
@@ -29,6 +33,10 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+
+    <style name="EtXs">
+        <item name="android:textSize">@dimen/txt_xs</item>
+    </style>
 
     <style name="EtSm">
         <item name="android:textSize">@dimen/txt_sm</item>

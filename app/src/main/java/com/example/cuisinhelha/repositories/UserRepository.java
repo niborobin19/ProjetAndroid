@@ -1,6 +1,7 @@
 package com.example.cuisinhelha.repositories;
 
 import com.example.cuisinhelha.Configuration;
+import com.example.cuisinhelha.models.AnswerDB;
 import com.example.cuisinhelha.models.AuthenticateUser;
 import com.example.cuisinhelha.models.MailUser;
 import com.example.cuisinhelha.models.PasswordUser;
@@ -22,7 +23,7 @@ public interface UserRepository {
     Call<List<User>> query();
 
     @POST(Configuration.API_USER)
-    Call<User> post(@Body User user);
+    Call<AnswerDB> post(@Body User user);
 
     @POST(Configuration.API_USER + "authenticate")
     Call<User> authenticate(@Body AuthenticateUser user);
