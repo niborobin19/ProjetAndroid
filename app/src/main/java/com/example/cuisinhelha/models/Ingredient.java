@@ -1,5 +1,7 @@
 package com.example.cuisinhelha.models;
 
+import java.util.Objects;
+
 public class Ingredient {
     private int idIngredient;
     private int idRecipe;
@@ -29,6 +31,10 @@ public class Ingredient {
 
     @Override
     public String toString() {
+        return nameIngredient;
+    }
+
+    public String toStringFull(){
         return "Ingredient{" +
                 "idIngredient=" + idIngredient +
                 ", idRecipe=" + idRecipe +
@@ -78,5 +84,16 @@ public class Ingredient {
         this.nameIngredient = nameIngredient;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient that = (Ingredient) o;
+        return Objects.equals(nameIngredient, that.nameIngredient);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(nameIngredient);
+    }
 }

@@ -41,43 +41,47 @@ public class RecipeSearchActivity extends AppCompatActivity implements AdapterVi
         setContentView(R.layout.activity_recipe_search);
 
         recipes = new ArrayList<>();
-        recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3 ,150, 3, "Dessert", "ElsaD"));
+        recipes.add(new Recipe(1, 1, "mock", "19-12-2019", "mock summary", 3, 150, 3, "Dessert", "ElsaD"));
 
-        etSearch = findViewById(R.id.searchEt);
-        lvResult = findViewById(R.id.resultLv);
+        etSearch = findViewById(R.id.search_et);
+        lvResult = findViewById(R.id.result_lv);
 
-        adapter = new RecipeSearchResultAdapter(this, R.id.resultLv, recipes);
+        adapter = new RecipeSearchResultAdapter(this, R.id.result_lv, recipes);
         lvResult.setAdapter(adapter);
         lvResult.setOnItemClickListener(this);
-
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-       /* Intent intent = new Intent(this, RecipeDetail.class);
+        Log.wtf("detail", "test");
+        Intent intent = new Intent(this, RecipeDetail.class);
         intent.putExtra(EXTRA_SEARCH_ACTIVITY, recipes.get(position).getIdRecipe());
         startActivity(intent);
-        */
-
     }
 
     public void searchRecipes(View view) {
         RecipeRepositoryService.queryText(etSearch.getText().toString())
-            .enqueue(new Callback<List<Recipe>>() {
-                @Override
-                public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
-                    recipes.clear();
-                    recipes.addAll(response.body());
-                    Log.wtf("recipes", recipes.toString());
-                    adapter.notifyDataSetChanged();
-                }
+                .enqueue(new Callback<List<Recipe>>() {
+                    @Override
+                    public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                        recipes.clear();
+                        recipes.addAll(response.body());
+                        //Log.wtf("recipes", recipes.toString());
+                        adapter.notifyDataSetChanged();
+                    }
 
-                @Override
-                public void onFailure(Call<List<Recipe>> call, Throwable t) {
-                    Log.wtf("SuperError", "Une erreur lors de l'accès à la table 'recipe' est survenue");
-                }
-            });
+                    @Override
+                    public void onFailure(Call<List<Recipe>> call, Throwable t) {
+                        Log.wtf("SuperError", "Une erreur lors de l'accès à la table 'recipe' est survenue");
+                    }
+                });
+    }
+
+    public void loadDetailsActivity(int id)
+    {
+        Intent intent = new Intent(this, RecipeDetail.class);
+        intent.putExtra(EXTRA_SEARCH_ACTIVITY, id);
+        startActivity(intent);
     }
 
     @Override

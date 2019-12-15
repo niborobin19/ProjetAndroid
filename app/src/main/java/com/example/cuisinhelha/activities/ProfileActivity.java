@@ -220,8 +220,10 @@ public class ProfileActivity extends AppCompatActivity implements IHeaderNavigat
     public void onEditPswClick(View view) {
         cleanTvResult();
         String oldPassword = etOldPassword.getText().toString();
-        if (oldPassword.length() < 3 || !UserPattern.validatePassword(oldPassword)) {
+        if (!UserPattern.validatePassword(oldPassword)) {
             updateTvError("Invalid old password.", true);
+        } else if (oldPassword.length() < 3) {
+            updateTvError("Enter your old password first.", true);
         } else {
             setEditingPassword(true);
         }

@@ -23,9 +23,16 @@
     <string name="profile_icon_description">Header\'s profile icon.</string>
     <string name="search_icon_description">Header\'s search icon.</string>
     <string name="logo_description">Header\'s logo.</string>
-
-
-
+    <string name="name_string">Name</string>
+    <string name="summary_string">Summary</string>
+    <string name="recipe_type_string">Recipe Type</string>
+    <string name="preparation_time_string">Preparation Time</string>
+    <string name="people_string">People</string>
+    <string name="sprice_rate_string">Spice rate</string>
+    <string name="ingredient_string">Ingredient</string>
+    <string name="quantity_string">Quantity</string>
+    <string name="unit_string">Unit</string>
+    <string name="step_string">Step</string>
 
     /** PROFILE ACTIVITY **/
     <string name="user_details">Your details:</string>
