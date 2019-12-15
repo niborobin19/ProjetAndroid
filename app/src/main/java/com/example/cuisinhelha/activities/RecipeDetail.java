@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.adapters.RecipeIngredientAdapter;
@@ -39,6 +43,9 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
     private TextView tv_recipeType;
     private TextView tv_prepTime;
     private TextView tv_persons;
+    private EditText et_review;
+    private RatingBar rb_rating;
+    private Button btn_addReview;
     private Recipe currentRecipe;
     private int recipeID;
 
@@ -63,6 +70,12 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
         reviews = new ArrayList<>();
         tv_recipeTitle = findViewById(R.id.recipeTitleTV);
 
+        //add review
+        btn_addReview = findViewById(R.id.btnPostReview);
+        rb_rating = findViewById(R.id.ratingBarReview);
+        et_review = findViewById(R.id.etMessageReview);
+
+        //listViews
         lvIngredients = findViewById(R.id.ingredientList);
         lvSteps = findViewById(R.id.lvSteps);
         lvReviews = findViewById(R.id.lvReview);
@@ -73,6 +86,7 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
 
         recipeID = getIntent().getIntExtra(RecipeSearchActivity.EXTRA_SEARCH_ACTIVITY, 1);
 
+        //adapters
         stepAdapter = new RecipeStepAdapter(this, R.id.lvSteps, steps);
         ingredientAdapter = new RecipeIngredientAdapter(this, R.id.ingredientList, ingredients);
         reviewAdapter = new RecipeReviewAdapter(this, R.id.lvReview, reviews);
@@ -141,9 +155,9 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
             public void onResponse(Call<List<Step>> call, Response<List<Step>> response) {
                 steps.clear();
                 steps.addAll(response.body());
-                Log.i("STEP", steps.toString());
                 stepAdapter.notifyDataSetChanged();
                 updateListViewSize(lvSteps);
+                Log.i("STEP", steps.toString());
 
 
             }
@@ -171,6 +185,34 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
             }
         });
     }
+    public void postReview(View view) {
+        Review review = new Review();
+        review.setIdUser(5);
+        review.setIdRecipe(currentRecipe.getIdRecipe());
+        review.setReviewMessage(et_review.getText().toString());
+        review.setRate((int) rb_rating.getRating());
+
+        if (!reviews.contains(review)){
+
+            ReviewRepositoryService.post(review).enqueue(new Callback<Review>() {
+                @Override
+                public void onResponse(Call<Review> call, Response<Review> response) {
+                    //Log.i("POST REVIEW", response.body().toString());
+                    loadReview();
+                }
+
+                @Override
+                public void onFailure(Call<Review> call, Throwable t) {
+                    Log.wtf("ERROR", "Review not posted");
+                }
+            });
+        }
+        else {
+
+            Toast toast = Toast.makeText(getApplicationContext(), "Already posted", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
     private void updateListViewSize(ListView lv){
         int totalHeight = 0;
         for(int i = 0; i < lv.getAdapter().getCount(); i++)
@@ -185,6 +227,7 @@ public class RecipeDetail extends AppCompatActivity implements IHeaderNavigation
         params.height = totalHeight + (lv.getDividerHeight() * (lv.getAdapter().getCount() - 1));
         lv.setLayoutParams(params);
         lv.requestLayout();
+        Log.wtf("ERROR", params.height+"");
     }
 
     @Override
