@@ -316,7 +316,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recite_step_add_btn">
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_step_add_btn">
 
                 </ListView>
 
@@ -333,7 +333,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/recipe_step_create_tv" />
 
                 <Button
-                    android:id="@+id/recite_step_add_btn"
+                    android:id="@+id/recipe_step_add_btn"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="2dp"
@@ -343,15 +343,47 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recipe_step_create_et" />
 
+
+                <ImageView
+                    android:id="@+id/recipe_picture_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_steps_lv"
+                    app:srcCompat="@drawable/profile_icon" />
+
+                <Button
+                    android:id="@+id/recipe_pick_picture_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="200dp"
+                    android:text="Add picture from file"
+                    android:onClick="loadOpenPictureIntent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_picture_iv" />
+
+                <Button
+                    android:id="@+id/recipe_take_picture_btn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Take picture"
+                    android:onClick="loadTakePictureIntent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/recipe_pick_picture_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/recipe_picture_iv" />
+
                 <Button
                     android:id="@+id/recipe_create_btn"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
-                    android:text="Create Recipe"
                     android:onClick="postRecipe"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="Create Recipe"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recipe_steps_lv" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recipe_take_picture_btn"/>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

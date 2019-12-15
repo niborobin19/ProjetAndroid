@@ -1,6 +1,7 @@
 package com.example.cuisinhelha.adapters;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 
 import com.example.cuisinhelha.R;
 import com.example.cuisinhelha.activities.RecipeSearchActivity;
+import com.example.cuisinhelha.helpers.UserPreferences;
 import com.example.cuisinhelha.models.Recipe;
 import com.example.cuisinhelha.services.RecipeRepositoryService;
 import com.example.cuisinhelha.services.ReviewRepositoryService;
@@ -27,8 +29,13 @@ import retrofit2.Response;
 
 public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
 
-    public RecipeSearchResultAdapter(@NonNull Context context, int resource, @NonNull List<Recipe> objects) {
+    private int idUser;
+    private boolean userType;
+
+    public RecipeSearchResultAdapter(@NonNull Context context, int resource, @NonNull List<Recipe> objects, int idUser, boolean userType) {
         super(context, resource, objects);
+        this.idUser = idUser;
+        this.userType = userType;
     }
 
     @NonNull
@@ -51,7 +58,11 @@ public class RecipeSearchResultAdapter extends ArrayAdapter<Recipe> {
         ImageButton btnDelete = v.findViewById(R.id.delete_btn);
         ImageButton btnDetails = v.findViewById(R.id.details_btn);
 
-        ///TODO masquer si l'utilisateur n'est ni admin ni propriétaire
+        if(!(userType || idUser == getItem(position).getIdUser()))
+        {
+            btnDelete.setVisibility(View.INVISIBLE);
+        }
+
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
